@@ -5,6 +5,8 @@
  */
 package interfaz;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jaime
@@ -87,10 +89,25 @@ public class Ejercicio extends javax.swing.JFrame {
 
     private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
 
-        
+       if(txtAños.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Digite la cantidad de años en la empresa", "ERROR", JOptionPane.ERROR_MESSAGE);
+            txtAños.requestFocusInWindow();
+        }else{
+
+            double años=Double.parseDouble(txtAños.getText());
+            double op=((años-1)*120)+100;
+
+            lblBonificacion.setText(""+op);
+
+        } 
     }//GEN-LAST:event_cmdCalcularActionPerformed
 
     private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
+    
+        txtAños.setText("");
+        lblBonificacion.setText("");
+
+        txtAños.requestFocusInWindow();  
         
     }//GEN-LAST:event_cmdBorrarActionPerformed
 
